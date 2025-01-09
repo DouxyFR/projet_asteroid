@@ -4,6 +4,11 @@ import pygame
 class CircleShape(pygame.sprite.Sprite):
     def __init__(self, x, y, radius):
         # we will be using this later
+        self.x = x
+        self.y = y
+        self.radius = radius
+        self.velocity = pygame.Vector2(0, 0)  # Default velocity for movement
+
         if hasattr(self, "containers"):
             super().__init__(self.containers)
         else:
