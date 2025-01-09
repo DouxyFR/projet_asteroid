@@ -37,6 +37,12 @@ def main():
         for thing in updatable:
             thing.update(dt)
 
+        for thing in asteroids:
+            if thing.check_collision(player) == True:
+                print("Game over!")
+                exit()
+
+
         for thing in drawable:
             thing.draw(screen)
         
