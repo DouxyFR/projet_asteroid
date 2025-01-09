@@ -5,7 +5,7 @@ import pygame
 from constants import *
 from player import *
 from asteroidfield import *
-from shot import *
+from shoot import *
 
 def main():
     pygame.init()
@@ -44,7 +44,10 @@ def main():
             if thing.check_collision(player) == True:
                 print("Game over!")
                 exit()
-
+            for bullet in shots: 
+                if thing.check_collision(bullet) == True:
+                    bullet.kill()
+                    thing.split()
 
         for thing in drawable:
             thing.draw(screen)
